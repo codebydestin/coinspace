@@ -1,0 +1,186 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,700;1,500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Reggae+One&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(241, 243, 250);
+  line-height: 160%;
+}
+
+header.main-header {
+  max-width: 1260px;
+  height: 64px;
+  margin: 1em auto;
+  background-color: #fff;
+  border-radius: 4px;
+
+  hgroup {
+    padding: 1em;
+    font-family: "Reggae One", cursive;
+    color: rgb(58, 58, 68);
+  }
+}
+
+ul.hor-navbar {
+  list-style: none;
+  display: flex;
+  margin-top: 1.4em;
+  margin-right: 1em;
+  min-width: 30%;
+
+  li {
+    flex: 1;
+    text-align: center;
+
+    a {
+      text-decoration: none;
+      color: rgb(72, 72, 90);
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: rgb(51, 51, 61);
+    }
+  }
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  background-color: rgb(85, 31, 187);
+}
+
+.container {
+  width: 1280px;
+  margin: 0 auto;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+.grid-row {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin: 1em 0;
+}
+
+.box {
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 1em;
+  transition: all 200ms ease-in;
+
+  h2.header-title {
+    font-weight: 600;
+    font-size: 18px;
+    margin: 0.4em 0 1.4em 0;
+  }
+}
+
+.box:hover {
+  transform: scale(1.02);
+  box-shadow: 1px 4px 24px rgba(160, 160, 189, 0.2);
+}
+
+.col-3 {
+  width: calc(33.33% - 1em);
+  min-height: 200px;
+  margin: 1em 0.5em;
+}
+
+.col-2-3 {
+  width: calc(66.66% - 1em);
+  min-height: 200px;
+  margin: 1em 0.5em;
+}
+
+.col-2 {
+  margin: 1em 0.5em;
+  width: calc(50% - 1em);
+}
+
+progress[value] {
+  -webkit-appearance: none;
+  appearance: none;
+  margin-right: 1em;
+}
+
+progress[value]::-webkit-progress-bar {
+  background-color: rgb(240, 242, 246);
+  border-radius: 2px;
+}
+
+progress[value]::-webkit-progress-value {
+  background-color: rgb(99, 192, 147);
+}
+
+table.table-data {
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: rgb(51, 51, 61);
+
+  thead {
+    background-color: rgb(240, 242, 246);
+    font-weight: 700;
+    th {
+      font-size: 13px;
+      color: rgb(98, 98, 128);
+    }
+  }
+
+  td,
+  th {
+    border-bottom: 1px dotted rgb(225, 224, 231);
+    padding: 1.2em 0;
+
+    a {
+      text-decoration: none;
+      color: rgb(70, 101, 179);
+    }
+
+    a:hover {
+      color: rgb(44, 65, 114);
+      text-decoration: underline;
+    }
+  }
+  tbody tr {
+    transition: all 200ms ease-in;
+  }
+
+  tbody tr:hover {
+    background-color: rgba(240, 242, 246, 0.6);
+  }
+
+  td.heavy-text {
+    font-weight: bold;
+    color: rgba(51, 51, 61, 0.85);
+    font-weight: 700;
+    font-size: 14px;
+  }
+
+  .positive-text {
+    color: rgb(46, 179, 115);
+  }
+
+  .negative-text {
+    color: rgb(224, 109, 81);
+  }
+
+  .positive-text,
+  .negative-text {
+    font-size: 13px;
+  }
+}
