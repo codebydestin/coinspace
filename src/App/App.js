@@ -1,10 +1,11 @@
 import { Fragment, useState, useEffect } from "react";
 import CurrencyView from "../components/currencyView";
-import axios from "axios";
-import "./App.scss";
 import MarketCapView from "../components/marketCapView";
 import MarketChart from "../components/marketChart";
 import SummaryView from "../components/summaryView";
+import SideBar from "../components/sideBar";
+import axios from "axios";
+import "./App.scss";
 
 function App() {
   const [assets, setAssets] = useState([]);
@@ -22,6 +23,7 @@ function App() {
     if (!assets.data) return <p>Loading...</p>;
     return (
       <Fragment>
+        <SideBar assets={assets.data} />
         <div className='grid-row'>
           <MarketChart assets={assets.data} />
           <SummaryView assets={assets.data} />
@@ -44,9 +46,6 @@ function App() {
 
         <ul className='hor-navbar right'>
           <li>
-            <a href='#'>Another link</a>
-          </li>
-          <li>
             <a href='#'>Github</a>
           </li>
           <li>
@@ -54,8 +53,6 @@ function App() {
           </li>
         </ul>
       </header>
-
-      <aside className='sidebar'></aside>
 
       <div className='container'>{renderViews()}</div>
     </Fragment>
