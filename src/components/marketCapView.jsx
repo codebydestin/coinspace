@@ -1,13 +1,9 @@
 import React, { Fragment } from "react";
-import HeaderTitle from "./shared/headerTitle";
+import HeaderTitle from "./tableComponent/headerTitle";
+import calcValue from "./shared/utils";
 
 const MarketCapView = (props) => {
   const { assets } = props;
-
-  function calcValue(value) {
-    if (value > 0) return <span className='positive-text'>+{value} %</span>;
-    return <span className='negative-text'>{value} %</span>;
-  }
 
   return (
     <Fragment>

@@ -1,13 +1,9 @@
-import HeaderTitle from "./shared/headerTitle";
+import HeaderTitle from "./tableComponent/headerTitle";
+import calcValue from "./shared/utils";
 
 function formatValue(value) {
   if (value === null) return 0.0;
   return value.toFixed(2);
-}
-
-function calcValue(value) {
-  if (value > 0) return <span className='positive-text'>+{value} %</span>;
-  return <span className='negative-text'>{value} %</span>;
 }
 
 const CurrencyView = (props) => {

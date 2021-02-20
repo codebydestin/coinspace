@@ -1,5 +1,5 @@
-import HeaderTitle from "./shared/headerTitle";
-import React from "react";
+import HeaderTitle from "./tableComponent/headerTitle";
+import React, { Fragment } from "react";
 import {
   BarChart,
   Bar,
@@ -39,33 +39,41 @@ const MarketChart = (props) => {
   }
 
   return (
-    <div className='box col-2-3'>
-      <ResponsiveContainer>
-        <BarChart
-          data={fetchData()}
-          stackOffset='sign'
-          margin={{
-            top: 20,
-            right: 20,
-            left: 0,
-            bottom: 5,
-          }}>
-          <CartesianGrid />
-          <XAxis dataKey='symbol' />
-          <YAxis />
-          <Tooltip />
-          <Legend />
+    <Fragment>
+      <div className='box col-2-3'>
+        <HeaderTitle title='Percentage Returns  - (Return On Investment) %' />
+        <h2 className='box-description'>
+          Percentage ROI for previous Month/Week
+        </h2>
+        <div className='chart-container'>
+          <ResponsiveContainer>
+            <BarChart
+              data={fetchData()}
+              stackOffset='sign'
+              margin={{
+                top: 20,
+                right: 20,
+                left: 0,
+                bottom: 5,
+              }}>
+              <CartesianGrid />
+              <XAxis dataKey='symbol' />
+              <YAxis />
+              <Tooltip />
+              <Legend />
 
-          <Bar
-            dataKey='week'
-            stackId='a'
-            fill='#8884d8'
-            background={{ fill: "#f9f9f9" }}
-          />
-          <Bar dataKey='month' stackId='a' fill='#82ca9d' />
-        </BarChart>
-      </ResponsiveContainer>
-    </div>
+              <Bar
+                dataKey='week'
+                stackId='a'
+                fill='#6064cc'
+                background={{ fill: "#f9f9f9" }}
+              />
+              <Bar dataKey='month' stackId='a' fill='#60dba6' />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+      </div>
+    </Fragment>
   );
 };
 
