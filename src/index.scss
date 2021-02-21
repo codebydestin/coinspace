@@ -56,6 +56,7 @@ ul.hor-navbar {
   background-color: rgb(85, 31, 187);
   display: flex;
   flex-direction: column;
+  z-index: 9999;
 
   ul.vert-menu {
     padding: 1em 0.6em 0 0.6em;
@@ -247,18 +248,17 @@ ul.segment-control {
       width: 100%;
       border: none;
       outline: none;
-      font-size: 12px;
+      font-size: 14px;
       color: rgb(52, 52, 70);
       cursor: pointer;
     }
 
     button:hover {
-      background-color: rgb(218, 224, 236);
+      background-color: rgb(202, 209, 223);
     }
 
-    button.active {
-      color: #fff;
-      background-color: rgb(114, 121, 138);
+    button:disabled {
+      opacity: 0.2;
     }
   }
 }
@@ -280,6 +280,13 @@ div.stats-description {
       margin-left: 0.6em;
       font-size: 16px;
       vertical-align: text-top;
+    }
+
+    span.color-success {
+      color: #45b182;
+    }
+
+    span.color-warning {
       color: #e65a47;
     }
   }

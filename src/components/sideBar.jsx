@@ -1,3 +1,5 @@
+import ReactTooltip from "react-tooltip";
+
 const SideBar = (props) => {
   const { assets } = props;
 
@@ -6,7 +8,17 @@ const SideBar = (props) => {
       <ul className='vert-menu'>
         {assets.map((asset) => (
           <li>
-            <a href='#'>{asset.symbol}</a>
+            <a href='#' data-tip data-for={asset.name}>
+              {asset.symbol}
+            </a>
+            <ReactTooltip
+              id={asset.name}
+              place='right'
+              effect='solid'
+              backgroundColor='#1b1e24'
+              data-offset="{right': 100}">
+              {asset.name}
+            </ReactTooltip>
           </li>
         ))}
       </ul>

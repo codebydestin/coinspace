@@ -1,6 +1,11 @@
 import HeaderTitle from "./tableComponent/headerTitle";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretUp, faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCaretUp,
+  faCaretDown,
+  faCaretSquareLeft,
+  faCaretSquareRight,
+} from "@fortawesome/free-solid-svg-icons";
 
 import {
   ResponsiveContainer,
@@ -49,15 +54,38 @@ const SummaryView = (props) => {
     lineHeight: "24px",
   };
 
+  function formatSymbol(value) {
+    if (value > 0)
+      return (
+        <span className='stat-h1 color-success'>
+          <FontAwesomeIcon icon={faCaretUp} /> {value}%
+        </span>
+      );
+
+    return (
+      <span className='stat-h1 color-warning'>
+        <FontAwesomeIcon icon={faCaretDown} /> {value}%
+      </span>
+    );
+  }
+
   return (
     <div className='box col-3'>
       <HeaderTitle title={`${asset.name} Summary`} />
       <ul className='segment-control'>
         <li className='control-item'>
-          <button className='active'>1 Hr</button>
+          <button
+            disabled={assetIndex === 0}
+            onClick={() => setAssetIndex(assetIndex - 1)}>
+            <FontAwesomeIcon icon={faCaretSquareLeft} />
+          </button>
         </li>
         <li className='control-item'>
-          <button>24 Hrs</button>
+          <button
+            disabled={assetIndex === assets.length - 1}
+            onClick={() => setAssetIndex(assetIndex + 1)}>
+            <FontAwesomeIcon icon={faCaretSquareRight} />
+          </button>
         </li>
       </ul>
 
@@ -91,38 +119,36 @@ const SummaryView = (props) => {
         <p>Bitcoin current price (USD)</p>
         <h1>
           ${asset.metrics.market_data.price_usd.toFixed(2)}
-          <span className='stat-h1'>
-            <FontAwesomeIcon icon={faCaretDown} />{" "}
-            {asset.metrics.market_data.percent_change_usd_last_1_hour.toFixed(
+          {formatSymbol(
+            asset.metrics.market_data.percent_change_usd_last_24_hours.toFixed(
               2
-            )}
-            %
-          </span>
+            )
+          )}
         </h1>
       </div>
 
       <ul className='stats-list'>
         <li>
           <span className='stat-title'>Open</span>$
-          {asset.metrics.market_data.ohlcv_last_1_hour.open.toFixed(2)}
+          {asset.metrics.market_data.ohlcv_last_24_hour.open.toFixed(2)}
         </li>
         <li>
           <span className='stat-title'>High</span>
           <span className='stat-icon stat-icon-success'>
             <FontAwesomeIcon icon={faCaretUp} />
           </span>
-          ${asset.metrics.market_data.ohlcv_last_1_hour.high.toFixed(2)}
+          ${asset.metrics.market_data.ohlcv_last_24_hour.high.toFixed(2)}
         </li>
         <li>
           <span className='stat-title'>Low</span>
           <span className='stat-icon stat-icon-danger'>
             <FontAwesomeIcon icon={faCaretDown} />
           </span>
-          ${asset.metrics.market_data.ohlcv_last_1_hour.low.toFixed(2)}
+          ${asset.metrics.market_data.ohlcv_last_24_hour.low.toFixed(2)}
         </li>
         <li>
           <span className='stat-title'>Close</span> $
-          {asset.metrics.market_data.ohlcv_last_1_hour.close.toFixed(2)}
+          {asset.metrics.market_data.ohlcv_last_24_hour.close.toFixed(2)}
         </li>
       </ul>
     </div>
