@@ -4,6 +4,7 @@ import MarketCapView from "../components/marketCapView";
 import MarketChart from "../components/marketChart";
 import SummaryView from "../components/summaryView";
 import SideBar from "../components/sideBar";
+import config from "../config.json";
 import axios from "axios";
 import "./App.scss";
 
@@ -15,12 +16,12 @@ function App() {
   }, []);
 
   const fetchData = async () => {
-    const results = await axios.get("https://data.messari.io/api/v2/assets");
+    const results = await axios.get(config.apiEndPoint);
     setAssets(results.data);
   };
 
   const renderViews = () => {
-    if (!assets.data) return <p>Loading...</p>;
+    if (!assets.data) return <p className='loading'>Loading...</p>;
     return (
       <Fragment>
         <SideBar assets={assets.data} />
@@ -46,10 +47,16 @@ function App() {
 
         <ul className='hor-navbar right'>
           <li>
-            <a href='#'>Github</a>
+            <a
+              target='_blank'
+              href='https://github.com/destinprojects/coinspace/'>
+              Github
+            </a>
           </li>
           <li>
-            <a href='#'>About Developer</a>
+            <a target='_blank' href='https://destinprojects.github.io/'>
+              About Developer
+            </a>
           </li>
         </ul>
       </header>

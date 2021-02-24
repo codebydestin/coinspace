@@ -116,7 +116,7 @@ const SummaryView = (props) => {
       </RadialBarChart>
 
       <div className='stats-description'>
-        <p>Bitcoin current price (USD)</p>
+        <p>{asset.name} Current Price (USD)</p>
         <h1>
           ${asset.metrics.market_data.price_usd.toFixed(2)}
           {formatSymbol(
